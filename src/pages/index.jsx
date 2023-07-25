@@ -4,12 +4,12 @@ import Head from "next/head";
 import React, { useEffect } from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css' 
-import Header from '../components/homePage/header/Header';
-import { Hero } from "../components/homePage/hero/Hero";
-import { About } from "../components/homePage/about/About";
-import { Benefit } from "../components/homePage/benefit/Benefit";
-import { Partner } from "../components/homePage/partner/Partner";
-import { Footer } from "../components/homePage/footer/Footer";
+import Header from '../components/homepage/header/Header';
+import { Hero } from "../components/homepage/hero/Hero";
+import { About } from "../components/homepage/about/About";
+import { Benefit } from "../components/homepage/benefit/Benefit";
+import { Partner } from "../components/homepage/partner/Partner";
+import { Footer } from "../components/homepage/footer/Footer";
 
 export default function Home() {
   useEffect(() => {

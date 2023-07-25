@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
         walletConnect(),
         coinbaseWallet(),
       ]}
+      clientId="e6389c507523eeafc24805e8a124b5c5"
       // sdkOptions={{
       //   gasless: {
       //     openzeppelin: {

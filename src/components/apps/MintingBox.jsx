@@ -310,11 +310,22 @@ export const MintingBox = () => {
                           setLoading(true);
                           const loadingToast = toast.loading("Process Minting");
                           try {
-                             await cntr.erc1155.claim(tokenId, quantity);
-                            toast.success("Minting Success", {});
+                             const tx = await cntr.erc1155.claim(tokenId, quantity);
+                             const receipt = tx.receipt.transactionHash;
+                             toast.success(
+                              <>
+                                Minting Success!<br/>
+                                <a
+                                  href={`https://mumbai.polygonscan.com/tx/${receipt}`}
+                                  target="_blank"
+                                  className="text-bold"
+                                >
+                                  Transaction Link
+                                </a>
+                              </>
+                            );
                           } catch (error) {
-                            toast.error(error);
-                            console.log(error);
+                            toast.error("Process Minting Error");
                           } finally {
                             setLoading(false);
                             toast.dismiss(loadingToast);

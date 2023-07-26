@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
-import { NFTAbi } from "../pages/abi/NftAbi.js";
-import { HeaderApps } from "../components/apps/HeaderApps";
+import { NFTAbi } from "./abi/NftAbi.js";
+import { HeaderApps } from "../components/apps/HeaderApps.jsx";
 import QRCode from "qrcode.react";
 
 const verifyNFT = () => {

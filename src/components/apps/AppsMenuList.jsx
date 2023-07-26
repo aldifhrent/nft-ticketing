@@ -17,6 +17,12 @@ export const AppsMenuList = () => {
       >
         My Ticket
       </Link>
+      <Link
+        className="text-gray-400 font-medium text-lg hover:text-gray-200"
+        href="/verify"
+      >
+        Verify Ticket
+      </Link>
       <ConnectWallet theme="white"/>
       </ul>
     </div>

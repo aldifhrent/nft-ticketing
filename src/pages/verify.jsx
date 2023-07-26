@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
-import { NFTAbi } from "./abi/NftAbi.js";
+import { NFTAbi } from '../components/NftAbi.js';
 import { HeaderApps } from "../components/apps/HeaderApps.jsx";
 import QRCode from "qrcode.react";
 

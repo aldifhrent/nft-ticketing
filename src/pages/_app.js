@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
         rainbowWallet(),
         zerionWallet(),
         paperWallet({
-          clientId: "3012e8ba-000b-44d4-9b24-52050f2c6086",
+          paperClientId: "3012e8ba-000b-44d4-9b24-52050f2c6086"
         })
       ]}
       clientId="e6389c507523eeafc24805e8a124b5c5"

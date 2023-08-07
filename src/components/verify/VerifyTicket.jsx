@@ -13,7 +13,7 @@ const VerifyTicket = () => {
   const verifyNFTHolder = async () => {
     try {
       // Inisialisasi Web3 dengan node Ethereum di Testnet Mumbai (Matic)
-      const web3 = new Web3("https://mumbai.rpc.thirdweb.com");
+      const web3 = new Web3("https://mumbai.rpc.thirdweb.com"); // RPC
       // Buat instance kontrak NFT berdasarkan alamat kontrak
       const nftContract = new web3.eth.Contract(NFTAbi, contract);
 

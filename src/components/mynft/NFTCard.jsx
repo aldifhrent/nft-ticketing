@@ -1,6 +1,5 @@
 import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 import { useState } from "react";
-import { truncateAddress } from "../../../const/mydetails";
 const NFTCard = ({ nft }) => {
   const [hover, setHover] = useState(false);
   return (

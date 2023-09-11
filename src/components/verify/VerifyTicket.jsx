@@ -7,16 +7,16 @@ import { contractAddress, tokenId} from "../../../const/mydetails.jsx"
 const VerifyTicket = () => {
   const [isNFTHolder, setIsNFTHolder] = useState(false);
   const [showResult, setShowResult] = useState(false);
-  const contract = contractAddress;
-  const nftId = tokenId;
+  const contract = "0x1f1155BAd0CB7B9da4Ab7dD29091b614BEC7b6D1"
+  const nftId = "0";
   const address = useAddress();
   const verifyNFTHolder = async () => {
     try {
       // Inisialisasi Web3 dengan node Ethereum di Testnet Mumbai (Matic)
-      const web3 = new Web3("https://mumbai.rpc.thirdweb.com"); // RPC
+      const web3 = new Web3("https://rpc-mumbai.maticvigil.com"); // RPC
       // Buat instance kontrak NFT berdasarkan alamat kontrak
       const nftContract = new web3.eth.Contract(NFTAbi, contract);
-
+      console.log(nftContract);
       // Panggil fungsi balanceOf di kontrak NFT untuk mendapatkan pemegang NFT dari NFT ID
       const nftHolder = await nftContract.methods
         .balanceOf(address, nftId) // Menggunakan address sebagai alamat NFT dan nftId sebagai token id dari NFT
@@ -28,6 +28,7 @@ const VerifyTicket = () => {
       setShowResult(true); // Setelah verifikasi, tampilkan hasil
     } catch (error) {
       console.error("Error:", error);
+      alert(error);
     }
   };
   return (

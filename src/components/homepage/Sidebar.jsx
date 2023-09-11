@@ -17,7 +17,7 @@ export const Sidebar = ({ status, setStatus }) => {
         {/* <h2 className="text-xl flex text-gray-200">
           Ticketing <span className="font-bold text-gray-200">LabsNFT</span>
         </h2> */}
-        <Image src={Logo}/>
+        <Image src={Logo} alt="Logo" />
         <XMarkIcon
           onClick={() => {
             setStatus(false);

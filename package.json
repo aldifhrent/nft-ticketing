@@ -14,19 +14,17 @@
     "@metamask/eth-sig-util": "^5.0.2",
     "@metamask/safe-event-emitter": "^2.0.0",
     "@next/font": "13.1.6",
-    "@thirdweb-dev/react": "3.14.40",
-    "@thirdweb-dev/sdk": "^3.10.46",
+    "@thirdweb-dev/react": "^3.14.40",
+    "@thirdweb-dev/sdk": "^3.10.59",
     "aos": "^3.0.0-beta.6",
     "ethers": "^5.7.2",
-    "magic-sdk": "^19.0.0",
-    "multiformats": "^12.0.1",
     "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-loading-skeleton": "^3.3.1",
     "react-toastify": "^9.1.1",
-    "web3": "^4.0.3"
+    "web3": "^4.1.1"
   },
   "devDependencies": {
     "@types/react": "18.2.9",

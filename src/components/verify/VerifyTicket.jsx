@@ -51,12 +51,12 @@ const VerifyTicket = () => {
         {showResult && (
           <>
             {!isNFTHolder && (
-              <h3 className="bg-red-500 font-bold text-white w-72 text-center flex">
+              <h3 className="text-center p-auto bg-red-500 font-bold text-white p-4 flex">
                 Non Verified Ticket Holders, buy ticket first
               </h3>
             )}
             {isNFTHolder && (
-              <h3 className=" text-center p-auto bg-green-500 font-bold text-white w-72 flex">
+              <h3 className="text-center p-auto bg-green-500 font-bold text-white p-4 flex">
                 Verified Ticket Holders
               </h3>
             )}

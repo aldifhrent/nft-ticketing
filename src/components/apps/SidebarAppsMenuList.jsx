@@ -1,6 +1,6 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Link from "next/link";
-export const SidebarAppsMenuList = ({active}) => {
+export const SidebarAppsMenuList = ({ active }) => {
   return (
     <nav className="mt-4">
       <ul className="flex flex-col gap-1">
@@ -28,7 +28,16 @@ export const SidebarAppsMenuList = ({active}) => {
         >
           Verify Ticket
         </Link>
-        <div className="pl-6"><ConnectWallet theme="white"/></div>
+        <div className="pl-6">
+          {" "}
+          <ConnectWallet
+            theme={"dark"}
+            btnTitle={"Connect Wallet"}
+            modalTitle={"NFTicketing"}
+            switchToActiveChain={true}
+            modalSize={"wide"}
+          />
+        </div>
       </ul>
     </nav>
   );

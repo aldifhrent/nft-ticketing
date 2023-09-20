@@ -19,6 +19,7 @@ import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { contractAddress, typeNFT, tokenId } from "../../../const/mydetails";
+import nftImage from '../../assets/0.png';
 export const MintingBox = () => {
   const [loading, setLoading] = useState(false);
   const [showSkeleton, setShowSkeleton] = useState(true);
@@ -241,7 +242,7 @@ export const MintingBox = () => {
       ) : (
         <div className="bg-black border border-outline">
           <Image
-            src="https://15065ae3c21e0bff07eaf80b713a6ef0.ipfscdn.io/ipfs/bafybeigfiirdht6a2u7i3tobny44a4f7peoira6u7lpicchocuirsotjly/0.png"
+            src={nftImage}
             width={200}
             height={200}
             alt="NFTicketing"

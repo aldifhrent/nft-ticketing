@@ -246,7 +246,6 @@ export const MintingBox = () => {
             height={200}
             alt="NFTicketing"
             className="mx-auto mt-4"
-            unoptimized
           />
           <p className="text-center text-white mt-2">
             {contractMetadata?.name}

@@ -241,7 +241,7 @@ export const MintingBox = () => {
       ) : (
         <div className="bg-black border border-outline">
           <Image
-            src="https://bafybeigfiirdht6a2u7i3tobny44a4f7peoira6u7lpicchocuirsotjly.gateway.ipfscdn.io/0.png"
+            src="https://15065ae3c21e0bff07eaf80b713a6ef0.ipfscdn.io/ipfs/bafybeigfiirdht6a2u7i3tobny44a4f7peoira6u7lpicchocuirsotjly/0.png"
             width={200}
             height={200}
             alt="NFTicketing"

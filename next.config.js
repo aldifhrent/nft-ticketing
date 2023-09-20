@@ -7,6 +7,7 @@ const nextConfig = {
       'bafybeidagfc22omsnhsed57qml3srk65ckiniimxfdbkwoxcdjwovlboba.gateway.ipfscdn.io',
       'bafybeigfiirdht6a2u7i3tobny44a4f7peoira6u7lpicchocuirsotjly.gateway.ipfscdn.io',
       'e6389c507523eeafc24805e8a124b5c5.ipfscdn.io',
+      'c40363e937d5ddb52923ed7313ed45c8.ipfscdn.io'
     ]
   }
 }

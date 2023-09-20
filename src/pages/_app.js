@@ -17,8 +17,7 @@ export default function App({ Component, pageProps }) {
         }),
         localWallet(),
       ]}
-      clientId="e6389c507523eeafc24805e8a124b5c5"
-      key="e6389c507523eeafc24805e8a124b5c5"
+      clientId="c40363e937d5ddb52923ed7313ed45c8"
     >
       <Component {...pageProps} />
     </ThirdwebProvider>

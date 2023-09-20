@@ -31,12 +31,14 @@ export const SidebarAppsMenuList = ({ active }) => {
         <div className="pl-6">
           {" "}
           <ConnectWallet
-            theme={"dark"}
-            btnTitle={"Connect Wallet"}
-            modalTitle={"NFTicketing"}
-            switchToActiveChain={true}
-            modalSize={"wide"}
-          />
+          theme={"dark"}
+          btnTitle={"Connect Wallet"}
+          modalTitle={"NFTicketing"}
+          switchToActiveChain={true}
+          modalSize={"wide"}
+          className="text-white"
+          hideTestnetFaucet={"true"}
+        />
         </div>
       </ul>
     </nav>

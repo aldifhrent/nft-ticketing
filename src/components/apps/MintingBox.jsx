@@ -298,7 +298,7 @@ export const MintingBox = () => {
                 <div className="flex flex-row items-center justify-center mt-6">
                   {isSoldOut ? (
                     <div className="mb-6 w-48">
-                      <Web3Button theme="dark" isDisabled={!canClaim}>
+                      <Web3Button theme="dark" isDisabled={!canClaim} className="text-white">
                         {buttonLoading ? "Loading..." : buttonText}
                       </Web3Button>
                     </div>

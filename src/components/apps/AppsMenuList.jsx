@@ -29,6 +29,8 @@ export const AppsMenuList = () => {
           modalTitle={"NFTicketing"}
           switchToActiveChain={true}
           modalSize={"wide"}
+          className="text-white"
+          hideTestnetFaucet={"true"}
         />
       </ul>
     </div>

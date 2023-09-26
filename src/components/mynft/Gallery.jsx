@@ -7,7 +7,7 @@ import { contractAddress} from "../../../const/mydetails";
 const Gallery = ({ nft }) => {
   const address = useAddress();
   const { contract: editionDrop } = useContract(contractAddress,
-    "edition-drop"
+    "edition-drop"  
   );
   const { data: nfts, isLoading: nftsLoading } = useOwnedNFTs(editionDrop, address);
   useEffect(() => {

@@ -50,7 +50,7 @@ export const Profile = () => {
           <Skeleton height={16} width={160} />
         ) : (
           <p className="text-black text-center md:text-left mt-2">
-            Contoh NFTicketing
+            Experiment Implementation Ticket using NFT
           </p>
         )}
         <div className="mt-2 flex justify-center md:justify-start">

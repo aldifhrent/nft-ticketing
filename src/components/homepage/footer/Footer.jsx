@@ -13,8 +13,7 @@ export const Footer = () => {
           <div className="">
             <Image src={Logo} className="w-48 sm:w-48" alt="Logo" />
             <div className="max-w-lg mt-4 text-gray-300 hidden md:block">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, tsed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            NFTicketing is an innovative project that aims to revolutionize the music ticketing industry through Non-Fungible Token (NFT) technology. The concept of NFTicketing combines blockchain technology with the world of music, creating a new ecosystem that enables music ticket sales and exclusive access using NFTs.
             </div>
             <div className="flex gap-6 text-gray-300 mt-4">
               <Link href="/">

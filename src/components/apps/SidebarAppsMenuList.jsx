@@ -28,18 +28,13 @@ export const SidebarAppsMenuList = ({ active }) => {
         >
           Verify Ticket
         </Link>
-        <div className="pl-6">
-          {" "}
-          <ConnectWallet
-          theme={"dark"}
+        <ConnectWallet
           btnTitle={"Connect Wallet"}
           modalTitle={"NFTicketing"}
           switchToActiveChain={true}
-          modalSize={"wide"}
-          className="text-white"
+          modalSize={"compact"}
           hideTestnetFaucet={"true"}
         />
-        </div>
       </ul>
     </nav>
   );

@@ -5,9 +5,7 @@ export const Hero = () => {
       <div className="container grid grid-cols-1 xl:grid-cols-2 justify-between gap-4 px-4 pb-8 mx-auto mb-12 pt-20">
         <div className="" data-aos="fade-up">
           <div>
-            <h1
-              className="mb-4 text-4xl font-extrabold tracking-tight leading-10 xl:leading-tight md:text-5xl xl:text-6xl text-white"
-            >
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-10 xl:leading-tight md:text-5xl xl:text-6xl text-white">
               Bring
               <br />
               Your Experience Ticketing
@@ -28,7 +26,10 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="mb-6 flex order-first md:order-none justify-around" data-aos="fade-right">
+        <div
+          className="mb-6 flex order-first md:order-none justify-around"
+          data-aos="fade-right"
+        >
           <img
             className="w-full xl:w-[410px] h-[350px]"
             src="/images/ticket-hero.png"

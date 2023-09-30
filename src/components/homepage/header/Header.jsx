@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../../../../public/images/LogoWebsite.svg";
 import Image from "next/image";
-import { MenuList } from "../MenuList"
+import { MenuList } from "../MenuList";
 import { Sidebar } from "../Sidebar";
 import { Trigger } from "../../utils/Trigger";
 
@@ -30,6 +30,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;

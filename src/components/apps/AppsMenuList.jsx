@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, darkTheme } from "@thirdweb-dev/react";
 
 export const AppsMenuList = () => {
   return (
@@ -24,14 +24,12 @@ export const AppsMenuList = () => {
           Verify Ticket
         </Link>
         <ConnectWallet
-          theme={"dark"}
-          btnTitle={"Connect Wallet"}
-          modalTitle={"NFTicketing"}
-          switchToActiveChain={true}
-          modalSize={"wide"}
-          className="text-white"
-          hideTestnetFaucet={"true"}
-        />
+        btnTitle={"Connect Wallet"}
+        modalTitle={"NFTicketing"}
+        switchToActiveChain={true}
+        modalSize={"compact"}
+        hideTestnetFaucet={"true"}
+      />
       </ul>
     </div>
   );

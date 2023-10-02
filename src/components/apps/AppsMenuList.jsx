@@ -27,7 +27,7 @@ export const AppsMenuList = () => {
         btnTitle={"Connect Wallet"}
         modalTitle={"NFTicketing"}
         switchToActiveChain={true}
-        modalSize={"compact"}
+        modalSize={"wide"}
         hideTestnetFaucet={"true"}
       />
       </ul>

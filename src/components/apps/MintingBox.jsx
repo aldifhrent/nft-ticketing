@@ -299,7 +299,7 @@ export const MintingBox = () => {
                 <div className="flex flex-row items-center justify-center mt-6">
                   {isSoldOut ? (
                     <div className="mb-6 w-48">
-                      <Web3Button theme="dark" isDisabled={!canClaim} className="text-white">
+                      <Web3Button theme="light" isDisabled={!canClaim} className="text-white">
                         {buttonLoading ? "Loading..." : buttonText}
                       </Web3Button>
                     </div>
@@ -319,7 +319,7 @@ export const MintingBox = () => {
                                 <a
                                   href={`https://mumbai.polygonscan.com/tx/${receipt}`}
                                   target="_blank"
-                                  className="text-bold"
+                                  className="text-bold text-black"
                                 >
                                   Transaction Link
                                 </a>

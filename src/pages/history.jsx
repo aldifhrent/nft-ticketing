@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
-import web3 from "web3";
 import axios from "axios";
 import { useAddress } from "@thirdweb-dev/react";
 import { HeaderApps } from "../components/apps/HeaderApps";
-import Link from "next/link";
 import TransactionTable from "../components/transactions/TransactionTable";
-import { contractAddress } from "../../const/mydetails";
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
@@ -17,7 +14,6 @@ const TransactionHistory = () => {
         const MumbaiApiKey = "WV72499DICI162T4V9BF7Y1GMSICZHFQ11";
         const apiUrl = `https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${address}&apikey=${MumbaiApiKey}&tag=latest`;
         const response = await axios.get(apiUrl);
-        console.log(response.data.result);
         if (response.data && response.data.result) {
           const filteredTransactions = response.data.result.filter((tx) => {
             // Memeriksa apakah input data transaksi mengandung metode "Claim"

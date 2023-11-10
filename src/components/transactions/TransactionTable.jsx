@@ -32,7 +32,7 @@ const TransactionTable = ({ data }) => {
                       className="px-6 py-3 text-start whitespace-nowrap "
                     >
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        TX HASH
+                        Transaction Hash
                       </span>
                     </th>
 
@@ -63,77 +63,87 @@ const TransactionTable = ({ data }) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {paginatedData.map((tx, index) => (
-                    <tr key={{ index }}>
-                      <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                        <button
-                          type="button"
-                          className="flex items-center gap-x-2"
-                        >
-                          <svg
-                            className="flex-shrink-0 w-4 h-4 text-gray-800 dark:text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                          </svg>
-                          <span className="text-sm text-gray-800 dark:text-gray-200">
-                          {(currentPage * itemsPerPage) + index + 1}
-                          </span>
-                        </button>
-                      </td>
-                      <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                        <div className="flex items-center gap-x-3">
-                          <span className="font-semibold text-sm text-gray-800 dark:text-white hover:text-gray-600">
-                            <Link
-                              href={`https://mumbai.polygonscan.com/tx/${tx.hash}`}
-                            >
-                              Tx Hash
-                            </Link>
-                          </span>
-                        </div>
-                      </td>
-                      <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                        <div className="flex items-center gap-x-3">
-                          <span className="font-semibold text-sm text-gray-800 dark:text-white">
-                            {tx.from}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                        <span className="text-sm text-gray-800 dark:text-white">
-                          {web3.utils.fromWei(tx.value, "ether")} MATIC
-                        </span>
-                      </td>
-
-                      <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                        <span className="text-sm text-gray-800 dark:text-white">
-                          {new Date(tx.timeStamp * 1000).toLocaleDateString(
-                            "en-US",
-                            {
-                              day: "numeric",
-                              month: "long",
-                              year: "numeric",
-                            }
-                          )}
+                  {paginatedData.length === 0 ? (
+                    <tr>
+                      <td colSpan="5" className="text-center py-4">
+                        <span className="text-sm text-gray-800 dark:text-gray-200">
+                          No transactions found.
                         </span>
                       </td>
                     </tr>
-                  ))}
+                  ) : (
+                    paginatedData.map((tx, index) => (
+                      <tr key={{ index }}>
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <button
+                            type="button"
+                            className="flex items-center gap-x-2"
+                          >
+                            <svg
+                              className="flex-shrink-0 w-4 h-4 text-gray-800 dark:text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <span className="text-sm text-gray-800 dark:text-gray-200">
+                              {currentPage * itemsPerPage + index + 1}
+                            </span>
+                          </button>
+                        </td>
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <div className="flex items-center gap-x-3">
+                            <span className="font-semibold text-sm text-gray-800 dark:text-white hover:text-gray-600">
+                              <Link
+                                href={`https://mumbai.polygonscan.com/tx/${tx.hash}`}
+                              >
+                                Tx Hash
+                              </Link>
+                            </span>
+                          </div>
+                        </td>
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <div className="flex items-center gap-x-3">
+                            <span className="font-semibold text-sm text-gray-800 dark:text-white">
+                              {tx.from}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <span className="text-sm text-gray-800 dark:text-white">
+                            {web3.utils.fromWei(tx.value, "ether")} MATIC
+                          </span>
+                        </td>
+
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <span className="text-sm text-gray-800 dark:text-white">
+                            {new Date(tx.timeStamp * 1000).toLocaleDateString(
+                              "en-US",
+                              {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                              }
+                            )}
+                          </span>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
               <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
                 <div>
                   <p class="text-sm text-gray-600 dark:text-gray-400">
                     <span class="font-semibold text-gray-800 dark:text-gray-200">
-                    Page {currentPage + 1} of {pageCount}
+                      Page {currentPage + 1} of {pageCount}
                     </span>{" "}
                   </p>
                 </div>

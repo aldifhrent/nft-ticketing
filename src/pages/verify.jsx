@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import Head from "next/head";
 import { HeaderApps } from "../components/apps/HeaderApps";
 import VerifyTicket from '../components/verify/VerifyTicket';

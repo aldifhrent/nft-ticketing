@@ -3,14 +3,21 @@ import axios from "axios";
 import { useAddress } from "@thirdweb-dev/react";
 import { HeaderApps } from "../components/apps/HeaderApps";
 import TransactionTable from "../components/transactions/TransactionTable";
+import { useRouter } from "next/router";
 
 const TransactionHistory = () => {
+  const router = useRouter();
   const [transactions, setTransactions] = useState([]);
   const address = useAddress(); // Menggunakan alamat wallet pengguna
 
   useEffect(() => {
     async function FetchTransactionHistory() {
       try {
+        if(!address) {
+          setTransactions([]);
+          return ;
+        }
+        
         const MumbaiApiKey = "WV72499DICI162T4V9BF7Y1GMSICZHFQ11";
         const apiUrl = `https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${address}&apikey=${MumbaiApiKey}&tag=latest`;
         const response = await axios.get(apiUrl);
@@ -33,12 +40,11 @@ const TransactionHistory = () => {
         console.log(error);
       }
     }
-
     FetchTransactionHistory();
   }, [address]); // Menambahkan [address] sebagai dependensi, sehingga useEffect akan berjalan ketika alamat berubah
 
   return (
-    <div>
+    <div className="bg-gray-500">
       <HeaderApps />
       <TransactionTable data={transactions} />
     </div>

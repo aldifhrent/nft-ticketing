@@ -3,28 +3,26 @@ import axios from "axios";
 import { useAddress } from "@thirdweb-dev/react";
 import { HeaderApps } from "../components/apps/HeaderApps";
 import TransactionTable from "../components/transactions/TransactionTable";
-import { useRouter } from "next/router";
-
+import Head from "next/head";
 const TransactionHistory = () => {
-  const router = useRouter();
   const [transactions, setTransactions] = useState([]);
   const address = useAddress(); // Menggunakan alamat wallet pengguna
 
   useEffect(() => {
     async function FetchTransactionHistory() {
       try {
-        if(!address) {
+        if (!address) { // Checking address connect or not , if not setTransaction to [];
           setTransactions([]);
-          return ;
+          return;
         }
-        
+
         const MumbaiApiKey = "WV72499DICI162T4V9BF7Y1GMSICZHFQ11";
         const apiUrl = `https://api-testnet.polygonscan.com/api?module=account&action=txlist&address=${address}&apikey=${MumbaiApiKey}&tag=latest`;
         const response = await axios.get(apiUrl);
         if (response.data && response.data.result) {
           const filteredTransactions = response.data.result.filter((tx) => {
             // Memeriksa apakah input data transaksi mengandung metode "Claim"
-            const input = tx.input.toLowerCase();
+            const input = tx.input.toLowerCase(); 
             const claimSignature = "0x57bc3d78";
             const contractAddress =
               "0x1f1155BAd0CB7B9da4Ab7dD29091b614BEC7b6D1";
@@ -44,10 +42,21 @@ const TransactionHistory = () => {
   }, [address]); // Menambahkan [address] sebagai dependensi, sehingga useEffect akan berjalan ketika alamat berubah
 
   return (
-    <div className="bg-gray-500">
-      <HeaderApps />
-      <TransactionTable data={transactions} />
-    </div>
+    <>
+      <Head>
+        <title>Transaction History</title>
+        <meta
+          name="description"
+          content="NFTicketing Experiment Using ThirdWeb"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="bg-gray-500">
+        <HeaderApps />
+        <TransactionTable data={transactions} />
+      </div>
+    </>
   );
 };
 

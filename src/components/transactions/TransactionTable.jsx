@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import web3 from "web3";
-import ReactPaginate from "react-paginate";
 const TransactionTable = ({ data }) => {
   const itemsPerPage = 10; // Ubah sesuai kebutuhan
   const [currentPage, setCurrentPage] = useState(0);
@@ -24,7 +23,7 @@ const TransactionTable = ({ data }) => {
                       className="px-6 py-3 text-start whitespace-nowrap"
                     >
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        #
+                        No
                       </span>
                     </th>
                     <th
@@ -38,18 +37,26 @@ const TransactionTable = ({ data }) => {
 
                     <th
                       scope="col"
-                      className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        Address
-                      </span>
-                    </th>
-                    <th
-                      scope="col"
                       className="px-6 py-3 text-start whitespace-nowrap"
                     >
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                         Price
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        From
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        To
                       </span>
                     </th>
                     <th
@@ -79,20 +86,6 @@ const TransactionTable = ({ data }) => {
                             type="button"
                             className="flex items-center gap-x-2"
                           >
-                            <svg
-                              className="flex-shrink-0 w-4 h-4 text-gray-800 dark:text-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
                             <span className="text-sm text-gray-800 dark:text-gray-200">
                               {currentPage * itemsPerPage + index + 1}
                             </span>
@@ -103,25 +96,41 @@ const TransactionTable = ({ data }) => {
                             <span className="font-semibold text-sm text-gray-800 dark:text-white hover:text-gray-600">
                               <Link
                                 href={`https://mumbai.polygonscan.com/tx/${tx.hash}`}
+                                target="_blank"
                               >
-                                Tx Hash
+                                TX Hash
                               </Link>
                             </span>
                           </div>
                         </td>
-                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                          <div className="flex items-center gap-x-3">
-                            <span className="font-semibold text-sm text-gray-800 dark:text-white">
-                              {tx.from}
-                            </span>
-                          </div>
-                        </td>
+
                         <td className="h-px w-px whitespace-nowrap px-6 py-3">
                           <span className="text-sm text-gray-800 dark:text-white">
                             {web3.utils.fromWei(tx.value, "ether")} MATIC
                           </span>
                         </td>
-
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <div className="flex items-center gap-x-3">
+                            <Link
+                              href={`https://mumbai.polygonscan.com/address/${tx.from}`}
+                              target="_blank"
+                              className="font-semibold text-sm text-gray-800 dark:text-white"
+                            >
+                              {tx.from.slice(0, 5)}...{tx.from.slice(-5)}
+                            </Link>
+                          </div>
+                        </td>
+                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
+                          <div className="flex items-center gap-x-3">
+                            <Link
+                              href={`https://mumbai.polygonscan.com/address/${tx.to}`}
+                              target="_blank"
+                              className="font-semibold text-sm text-gray-800 dark:text-white"
+                            >
+                              {tx.to.slice(0, 5)}...{tx.to.slice(-5)}
+                            </Link>
+                          </div>
+                        </td>
                         <td className="h-px w-px whitespace-nowrap px-6 py-3">
                           <span className="text-sm text-gray-800 dark:text-white">
                             {new Date(tx.timeStamp * 1000).toLocaleDateString(

@@ -19,7 +19,7 @@ import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { contractAddress, typeNFT, tokenId } from "../../../const/mydetails";
-import nftImage from '../../assets/0.png';
+import nftImage from "../../assets/0.png";
 export const MintingBox = () => {
   const [loading, setLoading] = useState(false);
   const [showSkeleton, setShowSkeleton] = useState(true);
@@ -299,7 +299,11 @@ export const MintingBox = () => {
                 <div className="flex flex-row items-center justify-center mt-6">
                   {isSoldOut ? (
                     <div className="mb-6 w-48">
-                      <Web3Button theme="light" isDisabled={!canClaim} className="text-white">
+                      <Web3Button
+                        theme="light"
+                        isDisabled={!canClaim}
+                        className="text-white"
+                      >
                         {buttonLoading ? "Loading..." : buttonText}
                       </Web3Button>
                     </div>
@@ -311,11 +315,15 @@ export const MintingBox = () => {
                           setLoading(true);
                           const loadingToast = toast.loading("Process Minting");
                           try {
-                             const tx = await cntr.erc1155.claim(tokenId, quantity);
-                             const receipt = tx.receipt.transactionHash;
-                             toast.success(
+                            const tx = await cntr.erc1155.claim(
+                              tokenId,
+                              quantity
+                            );
+                            const receipt = tx.receipt.transactionHash;
+                            toast.success(
                               <>
-                                Minting Success!<br/>
+                                Minting Success!
+                                <br />
                                 <a
                                   href={`https://mumbai.polygonscan.com/tx/${receipt}`}
                                   target="_blank"

@@ -2,7 +2,7 @@ import {
   ThirdwebProvider,
   localWallet,
   metamaskWallet,
-  paperWallet,
+  embeddedWallet,
   walletConnect,
 } from "@thirdweb-dev/react";
 import "../../styles/globals.css";
@@ -12,15 +12,17 @@ export default function App({ Component, pageProps }) {
     <ThirdwebProvider
       activeChain={chainId}
       supportedWallets={[
-        metamaskWallet({ recommended: true}),
+        metamaskWallet(),
         walletConnect(),
-        paperWallet({
-          paperClientId: "3012e8ba-000b-44d4-9b24-52050f2c6086",
-        }),
         localWallet(),
+        embeddedWallet({
+          auth: {
+            options: ["email", "google", "facebook"],
+          },
+        }),
       ]}
-      clientId="c40363e937d5ddb52923ed7313ed45c8"
-      secretKey="nYZC6vLOmpp98OTMCfhDAtievoYjgDnucaKJbLzV8TtXfU_4i8QjutqXmS2KrFlTkDfeKYAQguM46peKwIjusA"
+      clientId="cd9478f3c5c61398daf4ba3d2b97d5b9"
+      secretKey="DAY2-X_h7n4VafURT2XtOE88pzTjiVXgFvqbLE8WUDXz_XbTlGIYAPrXONeyi1f-t2OUlgXuPMlJgGQx5BJi9g"
     >
       <Component {...pageProps} />
     </ThirdwebProvider>

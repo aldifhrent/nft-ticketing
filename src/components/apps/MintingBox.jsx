@@ -243,8 +243,8 @@ export const MintingBox = () => {
         <div className="bg-black border border-outline">
           <Image
             src={nftImage}
-            width={200}
-            height={200}
+            width={300}
+            height={300}
             alt="NFTicketing"
             className="mx-auto mt-4"
           />

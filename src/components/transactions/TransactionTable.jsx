@@ -51,14 +51,7 @@ const TransactionTable = ({ data }) => {
                         From
                       </span>
                     </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        To
-                      </span>
-                    </th>
+
                     <th
                       scope="col"
                       className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
@@ -110,26 +103,9 @@ const TransactionTable = ({ data }) => {
                           </span>
                         </td>
                         <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                          <div className="flex items-center gap-x-3">
-                            <Link
-                              href={`https://mumbai.polygonscan.com/address/${tx.from}`}
-                              target="_blank"
-                              className="font-semibold text-sm text-gray-800 dark:text-white"
-                            >
-                              {tx.from.slice(0, 5)}...{tx.from.slice(-5)}
-                            </Link>
-                          </div>
-                        </td>
-                        <td className="h-px w-px whitespace-nowrap px-6 py-3">
-                          <div className="flex items-center gap-x-3">
-                            <Link
-                              href={`https://mumbai.polygonscan.com/address/${tx.to}`}
-                              target="_blank"
-                              className="font-semibold text-sm text-gray-800 dark:text-white"
-                            >
-                              {tx.to.slice(0, 5)}...{tx.to.slice(-5)}
-                            </Link>
-                          </div>
+                          <span className="text-sm text-gray-800 dark:text-white">
+                            {tx.from}
+                          </span>
                         </td>
                         <td className="h-px w-px whitespace-nowrap px-6 py-3">
                           <span className="text-sm text-gray-800 dark:text-white">

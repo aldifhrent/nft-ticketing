@@ -48,7 +48,7 @@ const TransactionTable = ({ data }) => {
                       className="px-6 py-3 text-start whitespace-nowrap min-w-[16rem]"
                     >
                       <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        From
+                        Address
                       </span>
                     </th>
 

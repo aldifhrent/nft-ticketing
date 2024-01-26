@@ -7,13 +7,17 @@ import Head from "next/head";
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const address = useAddress(); // Menggunakan alamat wallet pengguna
-
+  const [isConnected, setIsConnected] = useState(false);
   useEffect(() => {
     async function FetchTransactionHistory() {
       try {
-        if (!address) { // Checking address connect or not , if not setTransaction to [];
+        if (!address) {
+          // Checking address connect or not , if not setTransaction to [];
           setTransactions([]);
+          setIsConnected(false);
           return;
+        } else {
+          setIsConnected(true);
         }
 
         const MumbaiApiKey = "WV72499DICI162T4V9BF7Y1GMSICZHFQ11";
@@ -22,7 +26,7 @@ const TransactionHistory = () => {
         if (response.data && response.data.result) {
           const filteredTransactions = response.data.result.filter((tx) => {
             // Memeriksa apakah input data transaksi mengandung metode "Claim"
-            const input = tx.input.toLowerCase(); 
+            const input = tx.input.toLowerCase();
             const claimSignature = "0x57bc3d78";
             const contractAddress =
               "0x1f1155BAd0CB7B9da4Ab7dD29091b614BEC7b6D1";
@@ -52,9 +56,15 @@ const TransactionHistory = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-gray-500">
+      <div className="bg-gray-500 h-screen">
         <HeaderApps />
-        <TransactionTable data={transactions} />
+        {isConnected ? (
+          <TransactionTable data={transactions} />
+        ) : (
+          <div className="items-center text-center justify-center h-screen mx-auto py-12">
+            <p>Please Connect to your wallet</p>
+          </div>
+        )}
       </div>
     </>
   );
